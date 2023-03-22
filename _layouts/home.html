@@ -22,21 +22,21 @@ layout: main
             <div class="pixels"></div>
             <div class="gradient"></div>
             <div class="content">
-                <time datetime="{{ featured.date | date_to_xmlschema }}" class="date">
+                <!--<time datetime="{{ featured.date | date_to_xmlschema }}" class="date">
                     {% if site.date_format == nil %}
                         {{ featured.date | date: "%m.%d.%Y" }}
                     {% else %}
                         {{ featured.date | date: site.date_format }}
                     {% endif %}
-                </time>
+                </time>-->
                 <h1 class="title">{{ featured.title }}</h1>
                 <p class="description">{{ featured.subtitle }}</p>
-                <div class="buttons">
+                <!--<div class="buttons">
                     <a href="{{ featured.url | prepend: site.baseurl }}" role="button" class="button">
                         <svg><use xlink:href="#icon-read"></use></svg>
                         <span>{{ site.translations.button.read_now | default: "Read Now" }}</span>
                     </a>
-                </div>
+                </div>-->
             </div>
         </section>
     {% endif %}
@@ -69,12 +69,12 @@ layout: main
                             </noscript>
                         {% endif %}
                         {% include new-post-tag.html date=post.date %}
-                        {% include read-icon.html %}
+                        <!--{% include read-icon.html %}-->
                     </a>
                     <div class="box-info">
-                        <time datetime="{{ post.date | date_to_xmlschema }}" class="date">
+                        <!--<time datetime="{{ post.date | date_to_xmlschema }}" class="date">
                             {% include date.html date=post.date %}
-                        </time>
+                        </time>-->
                         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
                             <h2 class="post-title">
                                 {{ post.title }}
@@ -83,13 +83,13 @@ layout: main
                         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
                             <p class="description">{{ post.description }}</p>
                         </a>
-                        <div class="tags">
+                        <!--<div class="tags">
                             {% for tag in post.tags %}
                                 {% if tag != "" %}
                                     <a href="{{ site.baseurl}}/tags/#{{tag | slugify }}">#{{ tag }}</a>
                                 {% endif %}
                             {% endfor %}
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </article>
