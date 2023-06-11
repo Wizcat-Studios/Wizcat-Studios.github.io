@@ -1,8 +1,27 @@
 <footer>
-    <p>
+    <style>
+        .footer-links {
+            margin-right: 20px; /* Adjust the value as needed */
+        }
+    </style>
+
+    {% if site.unity_link %}
+    <a href="https://assetstore.unity.com/publishers/{{ site.unity_link }}" title="Unity" class="footer-links">
+        {% if page.url == '/' %}
+            <img src="{{ site.baseurl }}/assets/img/logos/U_ProfileIcon_Alpha_Negative_Cropped-28x28.png" alt="Unity" />
+        {% else %}
+            <img src="{{ site.baseurl }}/assets/img/logos/U_ProfileIcon_Alpha_Positive_Cropped-28x28.png" alt="Unity" />
+        {% endif %}
+    </a>
+    {% endif %}
       {% if site.github_username %}
-        <a href="https://github.com/{{ site.github_username }}" title="Github">
-          <svg><use xlink:href="#icon-github"></use></svg>
+        <a href="https://github.com/{{ site.github_username }}" title="Github" class="footer-links">
+          <!--<svg><use xlink:href="#icon-github"></use></svg>-->
+            {% if page.url == '/' %}
+                <img src="{{ site.baseurl }}/assets/img/logos/github-mark-white-29x28.png" alt="Github" />
+            {% else %}
+                <img src="{{ site.baseurl }}/assets/img/logos/github-mark-28x28.png" alt="Github" />
+            {% endif %}
         </a>
       {% endif %}
       {% if site.facebook_username %}
@@ -30,13 +49,31 @@
           <svg><use xlink:href="#icon-linkedin"></use></svg>
         </a>
       {% endif %}
-    </p>
+        {% if site.discord_link %}
+        <a href="https://discord.gg/{{ site.discord_link }}" title="Discord" class="footer-links">
+            {% if page.url == '/' %}
+                <img src="{{ site.baseurl }}/assets/img/logos/discord-mark-white-37x28.png" alt="Discord" />
+            {% else %}
+                <img src="{{ site.baseurl }}/assets/img/logos/discord-mark-black-37x28.png" alt="Discord" />
+            {% endif %}
+        </a>
+        {% endif %}
+        {% if site.discord_link %}
+        <a href="https://www.youtube.com/channel/{{ site.youtube_link }}" title="YouTube" class="footer-links">
+            <img src="{{ site.baseurl }}/assets/img/logos/yt_icon_rgb-40x28.png" alt="YouTube" />
+        </a>
+        {% endif %}
+
 
     {% include links.html %}
 
     <p>
-        Based on the <span>Jekflix</span> template by <a href="https://rossener.com" target="_blank" class="creator">Thiago Rossener</a>
+        <!--Based on the <span>Jekflix</span> template by <a href="https://rossener.com" target="_blank" class="creator">Thiago Rossener</a>-->
       <!--<span>Jekflix</span> was made with <svg class="love"><use xlink:href="#icon-heart"></use></svg> by <a href="https://rossener.com" target="_blank" class="creator">Thiago Rossener</a>-->
+
+    </p>
+    <p>
+        Wizcat Studios 2023
     </p>
 </footer>
 
@@ -58,6 +95,15 @@
 {% endif %}
 {% if site.linkedin_username %}
     {% assign social_urls = social_urls | append: '"https://www.linkedin.com/in/' | append: site.linkedin_username | append: '",' %}
+{% endif %}
+{% if site.discord_link %}
+    {% assign social_urls = social_urls | append: '"https://discord.gg/' | append: site.discord_link | append: '",' %}
+{% endif %}
+{% if site.youtube_link %}
+    {% assign social_urls = social_urls | append: '"https://www.youtube.com/channel/' | append: site.youtube_link | append: '",' %}
+{% endif %}
+{% if site.unity_link %}
+    {% assign social_urls = social_urls | append: '"https://assetstore.unity.com/publishers/' | append: site.unity_link | append: '",' %}
 {% endif %}
 
 <script type="application/ld+json">

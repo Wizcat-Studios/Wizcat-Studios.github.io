@@ -120,6 +120,15 @@ layout: main
 {% if site.linkedin_username %}
     {% assign social_urls = social_urls | append: '"https://www.linkedin.com/in/' | append: site.linkedin_username | append: '",' %}
 {% endif %}
+{% if site.discord_link %}
+    {% assign social_urls = social_urls | append: '"https://discord.gg/' | append: site.discord_link | append: '",' %}
+{% endif %}
+{% if site.youtube_link %}
+    {% assign social_urls = social_urls | append: '"https://www.youtube.com/channel/' | append: site.youtube_link | append: '",' %}
+{% endif %}
+{% if site.unity_link %}
+    {% assign social_urls = social_urls | append: '"https://assetstore.unity.com/publishers/' | append: site.unity_link | append: '",' %}
+{% endif %}
 
 <script type="application/ld+json">
 {
